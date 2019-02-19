@@ -22,6 +22,9 @@ RELOCATE=
 CONFIG= $(INCS) $(FP) $(RELOCATE) $(SYSCALL) -DBITS32 -DT16
 
 CFLAGS= -g $(OPTIMIZE) $(CONFIG)
+ifneq "$(shell getconf LONG_BIT)" "32"
+CFLAGS+= -m32
+endif
 
 # Leave some room at the top of RAM for the C stack and for executing
 # RAM-resident binary code like serial_to_flash.  serial_to_flash needs
@@ -171,7 +174,7 @@ kernel.dic: interp.fth meta init.x
 # Forth execution environment, resulting in a smaller kernel.
 
 meta: $(METAOBJS)
-	$(CC) -o $@ $(METAOBJS)
+	$(CC) $(CFLAGS) -o $@ $(METAOBJS)
 
 # meta.o is an object module that is a component of "meta"
 

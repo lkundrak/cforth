@@ -27,7 +27,7 @@ EXTRACT_TOOLVERSIONS := grep SUPPORTED_TOOLCHAIN $(IDF_PATH)/make/project.mk \
 $(TOOLVERSIONS):
 	@echo Getting esp-idf
 	(cd $(ESP_IDF_PARENT_PATH) \
-	&& wget $(ESP_IDF_URL) \
+	&& : wget $(ESP_IDF_URL) \
 	&& echo Unzipping esp-idf \
 	&& unzip -q $(ESP_IDF_ARCHIVE) \
 	&& rm $(ESP_IDF_ARCHIVE) \
@@ -60,7 +60,7 @@ $(info path $(XTGCCPATH))
 $(XTGCCPATH):
 	(mkdir -p $(XTGCC_CONTAINER_PATH) \
 	&& cd $(XTGCC_CONTAINER_PATH) \
-	&& wget $(XTGCC_DOWNLOAD) \
+	&& : wget $(XTGCC_DOWNLOAD) \
 	&& tar xvf $(XTGCC_ARCHIVE) \
 	&& rm $(XTGCC_ARCHIVE) \
 	)

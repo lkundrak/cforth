@@ -36,6 +36,7 @@ CFLAGS += -m32
 TCFLAGS += -MMD -g -Os -std=c99
 #TCFLAGS += -MMD -g -Os -std=c99
 TCFLAGS += -DF_CPU=96000000
+LIBS += -lm
 
 include $(SRC)/cforth/embed/targets.mk
 

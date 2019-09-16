@@ -66,6 +66,7 @@ void swi_handler()
 {
 }
 
+#if 0
 void pfprint_input_stack(void) {}
 void pfmarkinput(void *fp, cell *up) {}
 
@@ -82,3 +83,4 @@ cell pfsize(cell f, u_cell *high, u_cell *low, cell *up)
 }
 
 cell isstandalone() { return 1; }
+#endif

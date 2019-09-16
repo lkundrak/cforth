@@ -35,7 +35,10 @@ SHIM_OBJS = tshimmain.o tspiread.o
 # On XO-1.75, a masked-ROM loader copies CForth from SPI FLASH into SRAM
 DICTIONARY=RAM
 
-DICTSIZE=0xf000
+#DICTSIZE=0xf000
+# $ echo "$(wc -l <dict.h) * 8"  |bc |xargs printf %x
+# 26808
+DICTSIZE=0x28000
 
 RAMBASE  = 0xd1000000
 IRQSTACKSIZE = 0x100

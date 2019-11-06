@@ -7,6 +7,7 @@ TLFLAGS += -static
 TCFLAGS += -O
 TCFLAGS += -g
 TCFLAGS += -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+TCFLAGS += -fno-pie
 # TCFLAGS = -O2 -fno-optimize-sibling-calls
 
 # VPATH += 

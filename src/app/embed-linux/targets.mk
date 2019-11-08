@@ -55,7 +55,7 @@ DICTSIZE=0x20000
 
 app.o: tdate.o
 	@echo Linking $@ ... 
-	@$(TLD)  -o $@  -r  $(PLAT_OBJS) $(FORTH_OBJS) tdate.o
+	@$(TCC) $(TCFLAGS) -o $@  -r  $(PLAT_OBJS) $(FORTH_OBJS) tdate.o
 
 # This rule builds a date stamp object that you can include in the image
 # if you wish.
@@ -66,7 +66,7 @@ tdate.o: $(PLAT_OBJS) $(FORTH_OBJS)
 	@echo 'const char build_date[] = "'`date --utc +%F\ %R`'";' >>tdate.c
 	@cat tdate.c
 	@echo TCC $@
-	@$(TCC) -c tdate.c -o $@
+	@$(TCC) $(TCFLAGS) -c tdate.c -o $@
 
 EXTRA_CLEAN += *.elf *.dump *.nm *.img tdate.c version
 EXTRA_CLEAN += $(FORTH_OBJS) $(PLAT_OBJS)
